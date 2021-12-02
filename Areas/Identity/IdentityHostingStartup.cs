@@ -20,8 +20,8 @@ namespace ASPBoysGirlsIdentity.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("LoginRegisterDBContextConnection")));
 
-                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                    .AddEntityFrameworkStores<LoginRegisterDBContext>();
+                //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                //    .AddEntityFrameworkStores<LoginRegisterDBContext>();
             });
         }
     }

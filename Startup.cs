@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ASPBoysGirlsIdentity.Data;
+using Microsoft.AspNetCore.Identity;
+using ASPBoysGirlsIdentity.Areas.Identity.Data;
 
 namespace ASPBoysGirlsIdentity
 {
@@ -29,6 +31,11 @@ namespace ASPBoysGirlsIdentity
 
             services.AddDbContext<ASPBoysGirlsIdentityContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ASPBoysGirlsIdentityContext")));
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<LoginRegisterDBContext>();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

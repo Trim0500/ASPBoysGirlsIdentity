@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASPBoysGirlsIdentity.Data;
 using ASPBoysGirlsIdentity.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASPBoysGirlsIdentity.Areas.Student.Controllers
 {
     [Area("Student")]
+    [Authorize(Roles = "Students")]
     public class StudentTasksController : Controller
     {
         private readonly ASPBoysGirlsIdentityContext _context;
